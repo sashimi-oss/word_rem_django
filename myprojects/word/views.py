@@ -35,7 +35,7 @@ def wordDetail(request, id):
 
 def wordTest(request):
   words = Word.objects.all()
-  print('-------wordTest------')
+  print('--------------wordTest-------------')
   # print(words[0].__dict__)
   # print(words[0].word)
   # print(words[rnd].id)
@@ -50,7 +50,19 @@ def wordTest(request):
 
 def wordResult(request, id):
   word = get_object_or_404(Word, id=id)
+  print('------------wordResult-------------')
+  # print(word.cnt)
+  word.cnt += 1
+  word.save()
   params = {
     'word':word,
   }
+  if word.cnt == word.by_cnt:
+    word.delete()
   return render(request, 'word/word_result.html', params)
+
+def wordDelete(request, id):
+  if request.method == 'POST':
+    word = get_object_or_404(Word, id=id)
+    word.delete()
+    return redirect('word:word_list')

@@ -2,4 +2,9 @@
 {% block content %}
 <h3>{{word.word}}</h3>
 <p>{{word.mean}}</p>
+
+<form action="{% url 'word:word_delete' word.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit">削除</button>
+</form>
 {% endblock %}

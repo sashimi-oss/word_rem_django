@@ -3,4 +3,8 @@
 {% for word in words %}
 <p><a href="{% url 'word:word_detail' word.id%}">{{word.word}}</a></p>
 {% endfor %}
+
+<form action="{% url 'word:index' %}" method="get">
+  <button type="submit">戻る</button>
+</form>
 {% endblock %}

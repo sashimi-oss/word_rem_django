@@ -4,4 +4,4 @@ from .models import Word
 class WordForm(ModelForm):
   class Meta:
     model = Word
-    fields = ['word', 'mean']
+    fields = ['word', 'mean', 'by_cnt']
