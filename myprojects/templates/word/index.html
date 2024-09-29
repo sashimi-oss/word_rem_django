@@ -1,0 +1,10 @@
+{% extends 'word/base.html' %}
+
+{% block content %}
+<p><a href="{% url 'word:word_write' %}">単語を記入</a></p>
+<p><a href="{% url 'word:word_list' %}">単語を閲覧する</a></p>
+<p><a href="{% url 'word:word_test' %}">単語テスト！</a></p>
+
+
+
+{% endblock %}

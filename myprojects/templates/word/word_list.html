@@ -1,0 +1,6 @@
+{% extends 'word/base.html' %}
+{% block content %}
+{% for word in words %}
+<p><a href="{% url 'word:word_detail' word.id%}">{{word.word}}</a></p>
+{% endfor %}
+{% endblock %}

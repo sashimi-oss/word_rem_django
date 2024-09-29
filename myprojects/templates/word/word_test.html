@@ -1,0 +1,7 @@
+{% extends 'word/base.html' %}
+{% block content %}
+<h3>{{word.word}}</h3>
+<form action="{% url 'word:word_result' word.id%}" method="get">
+  <button type="submit">答えを見る</button>
+</form>
+{% endblock %}
