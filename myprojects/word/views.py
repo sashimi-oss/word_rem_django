@@ -28,8 +28,10 @@ def wordList(request):
 
 def wordDetail(request, id):
   word = get_object_or_404(Word, id=id)
+  by_end = word.by_cnt - word.cnt
   params = {
     'word':word,
+    'by_end':by_end,
   }
   return render(request, 'word/word_detail.html', params)
 
@@ -54,8 +56,10 @@ def wordResult(request, id):
   # print(word.cnt)
   word.cnt += 1
   word.save()
+  by_end = word.by_cnt - word.cnt
   params = {
     'word':word,
+    'by_end':by_end,
   }
   if word.cnt == word.by_cnt:
     word.delete()

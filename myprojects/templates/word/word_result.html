@@ -2,6 +2,7 @@
 {% block content %}
 <h3>{{word.word}}</h3>
 <h3>{{word.mean}}</h3>
+<p>あと{{by_end}}回</p>
 <a href="{% url 'word:word_test' %}">テストを続ける</a>
 <a href="{% url 'word:index' %}">戻る</a>
 {% endblock %}
