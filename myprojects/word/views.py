@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import WordForm
 from .models import Word
 import random
+from django.views.decorators.csrf import csrf_exempt
 # from django.http import HttpResponse
 
 
 def index(request):
   return render(request, 'word/index.html')
 
+@csrf_exempt
 def wordWrite(request):
   if request.method == 'POST':
     form = WordForm(request.POST)
