@@ -20,3 +20,6 @@ RUN apt-get update
     # && rm -rf /var/lib/apt/lists/* \
 
 ENV LC_ALL ja_JP.UTF-8
+
+COPY . /app
+CMD ["sh", "build.sh"]
