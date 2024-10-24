@@ -46,6 +46,8 @@ def wordTest(request):
   # print(len(words))
   # print(rnd)
   wordsLen = len(words)
+  if wordsLen == 0:
+    return redirect('word:index')
   rnd = random.randint(0,wordsLen - 1)
   params = {
     'word':words[rnd],

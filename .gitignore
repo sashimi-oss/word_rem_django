@@ -2,3 +2,4 @@
 /myprojects/word/__pycache__
 /myprojects/word/migrations/__pycache__
 /myprojects/db.sqlite3
+/myprojects/.env
