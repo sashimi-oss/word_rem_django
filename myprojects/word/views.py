@@ -48,7 +48,14 @@ def wordTest(request):
   wordsLen = len(words)
   if wordsLen == 0:
     return redirect('word:index')
+  
+  for word in words:
+    word.rdmflag = False
+    word.save()
+    print(word.rdmflag)
   rnd = random.randint(0,wordsLen - 1)
+  words[rnd].rdmflag = True
+  words[rnd].save()
   params = {
     'word':words[rnd],
   }
@@ -58,6 +65,11 @@ def wordResult(request, id):
   word = get_object_or_404(Word, id=id)
   print('------------wordResult-------------')
   # print(word.cnt)
+  print(word.rdmflag)
+  if word.rdmflag==True:
+    word.rdmflag = False
+    word.cnt -= 1
+    print('if enter?')
   word.cnt += 1
   word.save()
   by_end = word.by_cnt - word.cnt

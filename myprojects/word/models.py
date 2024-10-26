@@ -6,6 +6,7 @@ class Word(models.Model):
   mean = models.TextField(max_length=400, verbose_name='意味')
   cnt = models.IntegerField(default=0)
   by_cnt = models.IntegerField(default=10, verbose_name='何回テストで消す？')
+  rdmflag = models.BooleanField(default=False)
   created_at = models.DateTimeField(auto_now_add=True)
 
 def __str__(self):
